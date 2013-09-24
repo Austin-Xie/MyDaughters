@@ -6,7 +6,7 @@
 	<script data-main="js/main" src="js/libs/requirejs/require.js"></script>
 	<link rel="stylesheet" href="css/jquery-ui/cupertino/jquery-ui-1.10.3.custom.min.css" />
 
-	<link rel="stylesheet" href="css/nivo-slider/nivo-slider.css" type="text/css" />
+	<link rel="stylesheet" href="css/galleria/themes/classic/galleria.classic.css" type="text/css" />
 
 </head>
 <body>
@@ -53,16 +53,9 @@
 
 		</div>
 		<div id="content" class="content">
-			<div class="slider-wrapper theme-default">
-				<div id="slider" class="nivoSlider">
-					<img src="images/toystory.jpg" data-thumb="images/toystory.jpg" alt="" />
-					<a href="http://dev7studios.com"><img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="This is an example of a caption" /></a>
-					<img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
-					<img src="images/nemo.jpg" data-thumb="images/nemo.jpg" alt="" title="#htmlcaption" />
-				</div>
-				<div id="htmlcaption" class="nivo-html-caption">
-					<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
-				</div>
+			<div id="galleria">
+				<a href="images/up.jpg"><img src="images/up.jpg" data-big="images/up.jpg" data-title="My title" data-description="My description"></a>
+				<a href="images/walle.jpg"><img src="images/walle.jpg" data-big="images/walle.jpg" data-title="Another title" data-description="My <em>HTML</em> description"></a>
 			</div>
 		</div>
 
