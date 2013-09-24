@@ -1,0 +1,34 @@
+#topBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+}
+
+#leftBar {
+    position: fixed;
+    left: 0;
+    top: 52px;
+    width: 250px;
+    height: 100%;
+    background-color: lightskyblue;
+}
+
+#content {
+    position: fixed;
+    left: 252px;
+    top: 52px;
+    background-color: lightsteelblue;
+    width: 100%;
+    height: 100%;
+}
+
+#footBar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+
+    background-color: yellow;
+}
