@@ -9,7 +9,8 @@ requirejs.config({
     paths: {
         app: '../app',
         underscore: 'underscore/underscore',
-        jquery: 'jquery/jquery-2.0.3'
+        jquery: 'jquery/jquery-2.0.3',
+        'jquery-ui': 'jquery-ui/jquery-ui.min'
     },
 
     shim: {
@@ -23,18 +24,25 @@ requirejs.config({
         },
         'underscore': {
             exports: '_'
+        },
+        jquery: {
+            exports: '$'
+        },
+        'jquery-ui': {
+            deps: ['jquery'],
+            exports: 'jquery-ui'
         }
     }
 });
 
 // Start the main app logic.
-requirejs(['underscore', 'jquery'],
+requirejs(['underscore', 'jquery', 'jquery-ui'],
     function   (_, $) {
-//        console.log($.fn.jquery);
         console.info("patience!");
         _.each([1,2,3], function(v) {
             console.info(v);
         });
 
+        $( "#accordion" ).accordion();
     }
 );
