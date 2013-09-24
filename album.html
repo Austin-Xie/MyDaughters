@@ -5,9 +5,12 @@
 	<link href="css/main.css" media="screen" rel="stylesheet" type="text/css" />
 	<script data-main="js/main" src="js/libs/requirejs/require.js"></script>
 	<link rel="stylesheet" href="css/jquery-ui/cupertino/jquery-ui-1.10.3.custom.min.css" />
+
+	<link rel="stylesheet" href="css/nivo-slider/nivo-slider.css" type="text/css" />
+
 </head>
 <body>
-	<div id="container" class="containter">
+	<div id="container" class="container">
 		<div id= "topBar" class="header">
 			Top Header
 		</div>
@@ -50,7 +53,17 @@
 
 		</div>
 		<div id="content" class="content">
-			Contents go here!
+			<div class="slider-wrapper theme-default">
+				<div id="slider" class="nivoSlider">
+					<img src="images/toystory.jpg" data-thumb="images/toystory.jpg" alt="" />
+					<a href="http://dev7studios.com"><img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="This is an example of a caption" /></a>
+					<img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
+					<img src="images/nemo.jpg" data-thumb="images/nemo.jpg" alt="" title="#htmlcaption" />
+				</div>
+				<div id="htmlcaption" class="nivo-html-caption">
+					<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+				</div>
+			</div>
 		</div>
 
 		<div id="footBar" class="footer">
