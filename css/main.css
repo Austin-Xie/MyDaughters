@@ -1,9 +1,9 @@
-/* line 1, ../sass/main.scss */
+/* line 2, ../sass/main.scss */
 #container {
   height: 100%;
 }
 
-/* line 7, ../sass/main.scss */
+/* line 8, ../sass/main.scss */
 #topBar {
   position: relative;
   top: 0;
@@ -12,7 +12,7 @@
   background-color: bisque;
 }
 
-/* line 15, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
 #leftBar {
   position: relative;
   left: 0;
@@ -21,7 +21,7 @@
   background-color: lightskyblue;
 }
 
-/* line 23, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 #content {
   position: relative;
   left: 252px;
@@ -31,8 +31,17 @@
   height: 800px;
   overflow: auto;
 }
-
 /* line 33, ../sass/main.scss */
+#content .tab_header {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 35, ../sass/main.scss */
+#content .tab_header div {
+  float: left;
+}
+
+/* line 41, ../sass/main.scss */
 #footBar {
   position: relative;
   left: 0;
@@ -42,7 +51,7 @@
   background-color: palevioletred;
 }
 
-/* line 42, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 #galleria {
   width: 1590px;
   height: 800px;
