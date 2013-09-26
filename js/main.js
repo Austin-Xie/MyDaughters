@@ -14,7 +14,8 @@ requirejs.config({
         'jquery-ui': 'jquery-ui/jquery-ui.min',
         'nivo-slider': 'nivo-slider/jquery.nivo.slider.pack',
         galleria: 'galleria/galleria-1.2.9.min',
-        'galleria.classic': 'galleria/themes/classic/galleria.classic.min'
+        'galleria.classic': 'galleria/themes/classic/galleria.classic.min',
+        'AlbumBrowseView': '../app/views/AlbumBrowseView'
     },
 
     shim: {
@@ -50,14 +51,16 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['underscore', 'jquery', 'galleria', 'galleria.classic', 'jquery-ui',  'app/views/AlbumBrowseView'],
-    function   (_, $, Galleria) {
+requirejs(['underscore', 'jquery', 'AlbumBrowseView', 'galleria', 'galleria.classic', 'jquery-ui'],
+    function   (_, $, AlbumBrowseView,  Galleria) {
         console.info("patience!");
         _.each([1,2,3], function(v) {
             console.info(v);
         });
 
         $( "#accordion" ).accordion();
+
+        var view1 = new AlbumBrowseView();
 
         Galleria.run('#galleria');
     }
