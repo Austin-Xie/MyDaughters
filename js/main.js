@@ -8,17 +8,17 @@ requirejs.config({
     //the paths config could be for a directory.
     paths: {
         app: '../app',
+        backbone: 'backbone/backbone-min',
         underscore: 'underscore/underscore',
         jquery: 'jquery/jquery-2.0.3',
         'jquery-ui': 'jquery-ui/jquery-ui.min',
         'nivo-slider': 'nivo-slider/jquery.nivo.slider.pack',
         galleria: 'galleria/galleria-1.2.9.min',
-        'galleria.classic': 'galleria/themes/classic/galleria.classic.min',
-        'app/AlbumBrowseView': 'views/AlbumBrowseView'
+        'galleria.classic': 'galleria/themes/classic/galleria.classic.min'
     },
 
     shim: {
-        'backbone': {
+        backbone: {
             //These script dependencies should be loaded before loading
             //backbone.js
             deps: ['underscore', 'jquery'],
@@ -50,7 +50,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['underscore', 'jquery', 'galleria', 'galleria.classic', 'jquery-ui',  'app/AlbumBrowseView'],
+requirejs(['underscore', 'jquery', 'galleria', 'galleria.classic', 'jquery-ui',  'app/views/AlbumBrowseView'],
     function   (_, $, Galleria) {
         console.info("patience!");
         _.each([1,2,3], function(v) {
