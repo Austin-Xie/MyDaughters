@@ -54,17 +54,19 @@
 		</div>
 		<div id="content" class="content">
 			<div class="tab_header">
-				<div class="tab_browse">
-					Browse
-
-				</div>
-				<div class="tab_tagging">
-					Tagging
-				</div>
+				<form>
+					<div id="radio">
+						<input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Browse</label>
+						<input type="radio" id="radio2" name="radio" /><label for="radio2">Tagging</label>
+						<input type="radio" id="radio3" name="radio" /><label for="radio3">Settings</label>
+					</div>
+				</form>
 			</div>
-			<div id="galleria">
-				<a href="images/up.jpg"><img src="images/up.jpg" data-big="images/up.jpg" data-title="My title" data-description="My description"></a>
-				<a href="images/walle.jpg"><img src="images/walle.jpg" data-big="images/walle.jpg" data-title="Another title" data-description="My <em>HTML</em> description"></a>
+			<div class="browse_panel">
+				<div id="galleria">
+					<a href="images/up.jpg"><img src="images/up.jpg" data-big="images/up.jpg" data-title="My title" data-description="My description"></a>
+					<a href="images/walle.jpg"><img src="images/walle.jpg" data-big="images/walle.jpg" data-title="Another title" data-description="My <em>HTML</em> description"></a>
+				</div>
 			</div>
 		</div>
 
