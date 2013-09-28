@@ -7,11 +7,16 @@
  */
 
 define(
-	['backbone', 'jquery', 'underscore',  'jquery-ui'],
+	[
+		'backbone',
+		'jquery',
+		'underscore',
+		'jquery-ui'
+	],
 	function(Backbone, $, _) {
 		"use strict";
 
-		var BrowseView =  Backbone.View.extend({
+		return  Backbone.View.extend({
 
 			el: $("div.browse_panel"),
 
@@ -40,7 +45,5 @@ define(
 			}
 
 		});
-
-		return BrowseView;
 	}
 );
