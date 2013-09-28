@@ -13,7 +13,7 @@ define(
 
         var BrowseView =  Backbone.View.extend({
 
-            el: $(".tab_header"),
+            el: $("div.browse_panel"),
 
             className: "AlbumBrowseView",
 
