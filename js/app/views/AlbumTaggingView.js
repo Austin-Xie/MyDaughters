@@ -9,11 +9,16 @@
 
 
 define(
-	['backbone', 'jquery', 'underscore',  'jquery-ui'],
+	[
+		'backbone',
+		'jquery',
+		'underscore',
+		'jquery-ui'
+	],
 	function(Backbone, $, _) {
 		"use strict";
 
-		var BrowseView =  Backbone.View.extend({
+		return Backbone.View.extend({
 
 			el: $("div.tagging_panel"),
 
@@ -26,7 +31,6 @@ define(
 			},
 
 			initialize: function() {
-//				this.listenTo(this.model, "change", this.render);
 				console.log("initialize called");
 				_.bindAll(this,'render');
 			},
@@ -37,13 +41,8 @@ define(
 
 			browse: function (event) {
 				event.preventDefault();
-//				console.log("radio1 clicked");
-				alert('clicked');
 			}
-
 		});
-
-		return BrowseView;
 	}
 );
 
