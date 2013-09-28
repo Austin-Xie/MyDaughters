@@ -7,59 +7,76 @@
  */
 
 define ([
-    'jquery',
-    'underscore',
-    'app/views/AlbumBrowseView'
-    ],
-    function($, _, AlbumBrowseView) {
-        'use strict';
+	'jquery',
+	'underscore',
+	'app/views/AlbumBrowseView',
+	'app/views/AlbumTaggingView'
+],
+	function($, _, AlbumBrowseView, AlbumTaggingView) {
+		'use strict';
 
-        var SelectedView = Backbone.Model.extend({
-            selectedView: ""
-        });
+		var SelectedView = Backbone.Model.extend({
+			selectedView: ""
+		});
 
-        var albumController =  Backbone.View.extend({
-            el: $('body'),
+		var albumController =  Backbone.View.extend({
+			el: $('body'),
 
-            className: "AlbumController",
+			className: "AlbumController",
 
-            events: {
-                'click #radio1, #radio2, #radio3': 'browse'
-            },
+			events: {
+				'click #radio1, #radio2, #radio3': 'changeView'
+			},
 
-            initialize: function() {
-                var self = this;
-                self.browseView = new AlbumBrowseView;
-                self.selectedView = new SelectedView();
+			initialize: function() {
+				var self = this;
 
-                self.browseView.listenTo(self.selectedView, 'change:selectedView',function(curModel, selectedView) {
-                    alert('selected view = ' + selectedView);
-                } );
+				self.selectedView = new SelectedView();
 
-//                this.listenTo(this.model, "change", this.render);
-                console.log("initialize called");
-                $( "#radio" ).buttonset();
-                _.bindAll(this,'render');
-            },
+				self.browseView = new AlbumBrowseView;
+				self.taggingView = new AlbumTaggingView;
 
-            browse: function (event) {
-                var self = this;
-                event.preventDefault();
-//                console.log("radio1 clicked");
-                switch(event.target.id) {
-                    case 'radio1':
-                        self.selectedView.set({selectedView: 'albumBrowseView'});
-                        break;
-                    case 'radio2':
-                        self.selectedView.set({selectedView: 'albumTaggingView'});
-                        break;
-                }
+				self.browseView.listenTo(self.selectedView, 'change:selectedView',function(curModel, selectedView) {
+					if (this.viewName === selectedView) {
+						this.$el.show();
+					} else {
+						this.$el.hide();
+					}
+				});
 
-                alert('event.target =' + event.target.id);
-            }
+				self.taggingView.listenTo(self.selectedView, 'change:selectedView',function(curModel, selectedView) {
+					if (this.viewName === selectedView) {
+						this.$el.show();
+					} else {
+						this.$el.hide();
+					}
+				});
 
-        });
+				console.log("initialize called");
+				$( "#radio" ).buttonset();
 
-        return  albumController;
-    }
+				$("#radio1").trigger('click');
+				_.bindAll(this,'render');
+			},
+
+			changeView: function (event) {
+				var self = this;
+				event.preventDefault();
+//				console.log("radio1 clicked");
+				switch(event.target.id) {
+					case 'radio1':
+						self.selectedView.set({selectedView: 'albumBrowseView'});
+						break;
+					case 'radio2':
+						self.selectedView.set({selectedView: 'albumTaggingView'});
+						break;
+				}
+
+				alert('event.target =' + event.target.id);
+			}
+
+		});
+
+		return  albumController;
+	}
 );
