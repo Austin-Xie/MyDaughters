@@ -11,9 +11,10 @@ define (
 		'jquery',
 		'underscore',
 		'app/views/AlbumBrowseView',
-		'app/views/AlbumTaggingView'
+		'app/views/AlbumTaggingView',
+		'app/views/AlbumConfigView'
 	],
-	function($, _, AlbumBrowseView, AlbumTaggingView) {
+	function($, _, AlbumBrowseView, AlbumTaggingView, AlbumConfigView) {
 		'use strict';
 
 		var MessageBroker = Backbone.Model.extend({
@@ -36,21 +37,16 @@ define (
 
 				self.browseView = new AlbumBrowseView;
 				self.taggingView = new AlbumTaggingView;
+				self.configView = new AlbumConfigView;
 
-				self.browseView.listenTo(self.messageBroker, 'change:messageBroker',function(curModel, selectedView) {
-					if (this.viewName === selectedView) {
-						this.$el.show();
-					} else {
-						this.$el.hide();
-					}
-				});
-
-				self.taggingView.listenTo(self.messageBroker, 'change:messageBroker',function(curModel, selectedView) {
-					if (this.viewName === selectedView) {
-						this.$el.show();
-					} else {
-						this.$el.hide();
-					}
+				_.each([self.browseView, self.taggingView, self.configView], function(view) {
+					view.listenTo(self.messageBroker, 'change:messageBroker',function(curModel, selectedView) {
+						if (this.viewName === selectedView) {
+							this.$el.show();
+						} else {
+							this.$el.hide();
+						}
+					});
 				});
 
 				console.log("initialize called");
@@ -67,12 +63,15 @@ define (
 					case 'radio1':
 						self.messageBroker.set({messageBroker: 'albumBrowseView'});
 						break;
+
 					case 'radio2':
 						self.messageBroker.set({messageBroker: 'albumTaggingView'});
 						break;
-				}
 
-				alert('event.target =' + event.target.id);
+					case 'radio3':
+						self.messageBroker.set({messageBroker: 'albumConfigView'});
+						break;
+				}
 			}
 
 		});
