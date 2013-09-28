@@ -6,17 +6,18 @@
  * To change this template use File | Settings | File Templates.
  */
 
-define ([
-	'jquery',
-	'underscore',
-	'app/views/AlbumBrowseView',
-	'app/views/AlbumTaggingView'
-],
+define (
+	[
+		'jquery',
+		'underscore',
+		'app/views/AlbumBrowseView',
+		'app/views/AlbumTaggingView'
+	],
 	function($, _, AlbumBrowseView, AlbumTaggingView) {
 		'use strict';
 
-		var SelectedView = Backbone.Model.extend({
-			selectedView: ""
+		var MessageBroker = Backbone.Model.extend({
+			messageBroker: ""
 		});
 
 		var albumController =  Backbone.View.extend({
@@ -31,12 +32,12 @@ define ([
 			initialize: function() {
 				var self = this;
 
-				self.selectedView = new SelectedView();
+				self.messageBroker = new MessageBroker();
 
 				self.browseView = new AlbumBrowseView;
 				self.taggingView = new AlbumTaggingView;
 
-				self.browseView.listenTo(self.selectedView, 'change:selectedView',function(curModel, selectedView) {
+				self.browseView.listenTo(self.messageBroker, 'change:messageBroker',function(curModel, selectedView) {
 					if (this.viewName === selectedView) {
 						this.$el.show();
 					} else {
@@ -44,7 +45,7 @@ define ([
 					}
 				});
 
-				self.taggingView.listenTo(self.selectedView, 'change:selectedView',function(curModel, selectedView) {
+				self.taggingView.listenTo(self.messageBroker, 'change:messageBroker',function(curModel, selectedView) {
 					if (this.viewName === selectedView) {
 						this.$el.show();
 					} else {
@@ -53,10 +54,9 @@ define ([
 				});
 
 				console.log("initialize called");
+				// Initialize jquery ui button set
 				$( "#radio" ).buttonset();
-
 				$("#radio1").trigger('click');
-				_.bindAll(this,'render');
 			},
 
 			changeView: function (event) {
@@ -65,10 +65,10 @@ define ([
 //				console.log("radio1 clicked");
 				switch(event.target.id) {
 					case 'radio1':
-						self.selectedView.set({selectedView: 'albumBrowseView'});
+						self.messageBroker.set({messageBroker: 'albumBrowseView'});
 						break;
 					case 'radio2':
-						self.selectedView.set({selectedView: 'albumTaggingView'});
+						self.messageBroker.set({messageBroker: 'albumTaggingView'});
 						break;
 				}
 
