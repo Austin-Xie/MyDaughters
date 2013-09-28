@@ -7,41 +7,40 @@
  */
 
 define(
-    ['backbone', 'jquery', 'underscore',  'jquery-ui'],
-    function(Backbone, $, _) {
-        "use strict";
+	['backbone', 'jquery', 'underscore',  'jquery-ui'],
+	function(Backbone, $, _) {
+		"use strict";
 
-        var BrowseView =  Backbone.View.extend({
+		var BrowseView =  Backbone.View.extend({
 
-            el: $("div.browse_panel"),
+			el: $("div.browse_panel"),
 
-            className: "AlbumBrowseView",
+			className: 'AlbumBrowseView',
 
-            events: {
-                'click #radio1, #radio2, #radio3': 'browse'
-//                "click .button.edit":   "openEditDialog",
-//                "click .button.delete": "destroy"
-            },
+			viewName: 'albumBrowseView',
 
-            initialize: function() {
-//                this.listenTo(this.model, "change", this.render);
-                console.log("initialize called");
-                $( "#radio" ).buttonset();
-                _.bindAll(this,'render');
-            },
+			events: {
+				'click #radio1, #radio2, #radio3': 'browse'
+			},
 
-            render: function() {
-                console.log("render called");
-            },
+			initialize: function() {
+//				this.listenTo(this.model, "change", this.render);
+				console.log("initialize called");
+				_.bindAll(this,'render');
+			},
 
-            browse: function (event) {
-                event.preventDefault();
-//                console.log("radio1 clicked");
-                alert('clicked');
-            }
+			render: function() {
+				console.log("render called");
+			},
 
-        });
+			browse: function (event) {
+				event.preventDefault();
+//				console.log("radio1 clicked");
+				alert('clicked');
+			}
 
-        return BrowseView;
-    }
+		});
+
+		return BrowseView;
+	}
 );
