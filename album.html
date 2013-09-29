@@ -17,13 +17,19 @@
 		<div id="leftBar" class="leftNavPanel">
 			<div id="accordion">
 				<h3>Eileen</h3>
-				<div>
-					<p>
-						Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-						ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-						amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-						odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-					</p>
+				<div class="navigation_panel">
+                    <div class="tag_panel">
+                        <div>
+                            <button id="rerun">Tags</button>
+                            <button id="select">Select an action</button>
+                        </div>
+                        <ul>
+                            <li><a href="#">Open...</a></li>
+                            <li><a href="#">Save</a></li>
+                            <li><a href="#">Delete</a></li>
+                        </ul>
+                    </div>
+
 				</div>
 				<h3>Iris</h3>
 				<div>
@@ -53,29 +59,26 @@
 
 		</div>
 		<div id="content" class="content">
-			<div class="tab_header">
-				<form>
-					<div id="radio">
-						<input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Browse</label>
-						<input type="radio" id="radio2" name="radio" /><label for="radio2">Tagging</label>
-						<input type="radio" id="radio3" name="radio" /><label for="radio3">Settings</label>
-					</div>
-				</form>
-			</div>
-			<div class="browse_panel">
-				<div id="galleria">
-					<a href="images/up.jpg"><img src="images/up.jpg" data-big="images/up.jpg" data-title="My title" data-description="My description"></a>
-					<a href="images/walle.jpg"><img src="images/walle.jpg" data-big="images/walle.jpg" data-title="Another title" data-description="My <em>HTML</em> description"></a>
-				</div>
-			</div>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Browse</a></li>
+                    <li><a href="#tabs-2">Tagging</a></li>
+                    <li><a href="#tabs-3">Config</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <div id="galleria">
+                        <a href="images/up.jpg"><img src="images/up.jpg" data-big="images/up.jpg" data-title="My title" data-description="My description"></a>
+                        <a href="images/walle.jpg"><img src="images/walle.jpg" data-big="images/walle.jpg" data-title="Another title" data-description="My <em>HTML</em> description"></a>
+                    </div>
+                </div>
+                <div id="tabs-2">
+                    <span>Tagging Photos here!</span>
+                </div>
+                <div id="tabs-3">
+                    <span>Config Album here!</span>
+                </div>
+            </div>
 
-			<div class="tagging_panel" style="display: none">
-				<span>Tagging Photos here!</span>
-			</div>
-
-			<div class="config_panel" style="display: none">
-				<span>Config Album here!</span>
-			</div>
 		</div>
 
 		<div id="footBar" class="footer">

@@ -51,8 +51,50 @@ define (
 
 				console.log("initialize called");
 				// Initialize jquery ui button set
-				$( "#radio" ).buttonset();
-				$("#radio1").trigger('click');
+//				$( "#radio" ).buttonset();
+
+				$(function() {
+					$( "#accordion" ).accordion();
+				});
+
+				$(function() {
+					$( "#tabs" ).tabs({
+						collapsible: true
+					});
+				});
+
+//				$("#radio1").trigger('click');
+				$(function() {
+					$( "#rerun" )
+						.button()
+						.click(function() {
+							alert( "Running the last action" );
+						})
+						.next()
+						.button({
+							text: false,
+							icons: {
+								primary: "ui-icon-triangle-1-s"
+							}
+						})
+						.click(function() {
+							var menu = $( this ).parent().next().show().position({
+								my: "left top",
+								at: "left bottom",
+								of: this
+							});
+							$( document ).one( "click", function() {
+								menu.hide();
+							});
+							return false;
+						})
+						.parent()
+						.buttonset()
+						.next()
+						.hide()
+						.menu();
+				});
+
 			},
 
 			changeView: function (event) {
